@@ -180,7 +180,7 @@ export default function Dashboard(props: {
           const txIndex = BigInt(utxo.outputIndex);
 
           const mintingScript = applyParamsToScript(Script.MintNFT, [txHash, txIndex]);
-          const mintingValidator: MintingPolicy = { type: "PlutusV3", script: applyDoubleCborEncoding(mintingScript) };
+          const mintingValidator: MintingPolicy = { type: "PlutusV3", script: mintingScript };
 
           localStorage.setItem("nftMintingScript", mintingValidator.script);
           console.log({
@@ -263,14 +263,14 @@ export default function Dashboard(props: {
             <Button
               className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg capitalize"
               radius="full"
-              onClick={actions.CheckRedeemer.mint}
+              onPress={actions.CheckRedeemer.mint}
             >
               Mint
             </Button>
             <Button
               className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg capitalize"
               radius="full"
-              onClick={actions.CheckRedeemer.burn}
+              onPress={actions.CheckRedeemer.burn}
             >
               Burn
             </Button>
@@ -283,14 +283,14 @@ export default function Dashboard(props: {
             <Button
               className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg capitalize"
               radius="full"
-              onClick={actions.CheckRedeemer2.mint}
+              onPress={actions.CheckRedeemer2.mint}
             >
               Mint
             </Button>
             <Button
               className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg capitalize"
               radius="full"
-              onClick={actions.CheckRedeemer2.burn}
+              onPress={actions.CheckRedeemer2.burn}
             >
               Burn
             </Button>
@@ -300,10 +300,10 @@ export default function Dashboard(props: {
         {/* NFT */}
         <AccordionItem key="4" aria-label="Accordion 4" title="NFT">
           <div className="flex flex-wrap gap-2 mb-2">
-            <Button className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg capitalize" radius="full" onClick={actions.NFT.mint}>
+            <Button className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg capitalize" radius="full" onPress={actions.NFT.mint}>
               Mint
             </Button>
-            <Button className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg capitalize" radius="full" onClick={actions.NFT.burn}>
+            <Button className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg capitalize" radius="full" onPress={actions.NFT.burn}>
               Burn
             </Button>
           </div>
